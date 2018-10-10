@@ -31,7 +31,7 @@ module.exports = (app, db) => {
     app.get('/income/:id/delete', income.deleteForm);
     
     app.post("/income/:id", income.editIncome);
-    app.delete("/income/:id", income.IncomeDelete);
+    app.delete("/income/:id", income.incomeDelete);
 
     app.post('/income', income.createIncome);
 };
