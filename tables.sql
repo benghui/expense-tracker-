@@ -4,7 +4,7 @@ CREATE TABLE
 IF NOT EXISTS expense
 (
     id SERIAL PRIMARY KEY,
-    expense decimal(12,2),
+    expense DECIMAL (12,2),
     date DATE,
     category TEXT NOT NULL
 );
@@ -15,7 +15,7 @@ CREATE TABLE
 IF NOT EXISTS income
 (
     id SERIAL PRIMARY KEY,
-    income decimal(12,2),
+    income DECIMAL (12,2),
     date DATE,
     category TEXT NOT NULL
 );

@@ -10,6 +10,12 @@ module.exports = (app, db) => {
      */
     // CRUD expense
     app.get('/expense/new', expense.newExpenseForm);
+    app.get('/expense/:id', expense.getFromId);
+    app.get('/expense/:id/edit', expense.editExpenseForm);
+    app.get('/expense/:id/delete', expense.deleteForm);
+
+    app.post("/expense/:id", expense.editExpense);
+    app.delete("/expense/:id", expense.expenseDelete);
 
     app.post('/expense', expense.createExpense);
 

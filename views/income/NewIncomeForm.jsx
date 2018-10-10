@@ -11,13 +11,13 @@ class NewIncomeForm extends React.Component {
                 <h2>Enter Income</h2>
                 <form className="income-form" method="POST" action="/income">
                   <div className="income-attribute">
-                    <input name="income" type="number" pattern = "[0-9]*" required placeholder="Income" />
+                  <input name="income" type="number" pattern="[0-9]*" step="0.01" required placeholder="Income" />
                   </div>
                   <div className="income-attribute">
-                    <input name="date" type="date" />
+                    <input name="date" type="date" required/>
                   </div>
                   <div className="income-attribute">
-                    <input name="category" type="text" placeholder="Category" />
+                    <input name="category" type="text" placeholder="Category" required/>
                   </div>
                   <input name="submit" type="submit" />
                 </form>
