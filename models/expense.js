@@ -32,8 +32,10 @@ module.exports = dbPoolInstance => {
   const editExpense = (id, expense, callback) => {
     const queryString = `UPDATE expense SET "expense" = ($1), "date" = ($2), "category" = ($3) WHERE id = ${id} RETURNING *`;
     const values = [expense.expense, expense.date, expense.category];
+    // console.log("EDIT EXPENSE MODEL", id);
+    // console.log("EDIT EXPENSE MODEL", expense);
 
-    dbPoolInstance.query (queryString, (error, queryResult) => {
+    dbPoolInstance.query (queryString, values, (error, queryResult) => {
         callback(error, queryResult);
     });
   };

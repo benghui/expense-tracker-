@@ -14,7 +14,7 @@ module.exports = (app, db) => {
     app.get('/expense/:id/edit', expense.editExpenseForm);
     app.get('/expense/:id/delete', expense.deleteForm);
 
-    app.post("/expense/:id", expense.editExpense);
+    app.put("/expense/:id", expense.editExpense);
     app.delete("/expense/:id", expense.expenseDelete);
 
     app.post('/expense', expense.createExpense);
@@ -30,7 +30,7 @@ module.exports = (app, db) => {
     app.get('/income/:id/edit', income.editIncomeForm);
     app.get('/income/:id/delete', income.deleteForm);
     
-    app.post("/income/:id", income.editIncome);
+    app.put("/income/:id", income.editIncome);
     app.delete("/income/:id", income.incomeDelete);
 
     app.post('/income', income.createIncome);

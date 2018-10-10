@@ -33,7 +33,7 @@ module.exports = dbPoolInstance => {
         const queryString = `UPDATE income SET "income" = ($1), "date" = ($2), "category" = ($3) WHERE id = ${id} RETURNING *`;
         const values = [income.income, income.date, income.category];
 
-        dbPoolInstance.query(queryString, (error, queryResult) => {
+        dbPoolInstance.query(queryString, values, (error, queryResult) => {
             callback(error, queryResult);
         });
     };

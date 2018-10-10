@@ -4,6 +4,7 @@ const DefaultLayout = require("../layout/DefaultLayout");
 
 class EditExpenseForm extends React.Component {
     render() {
+
         const cancelUrl = `/expense/${this.props.expense.id}`;
         const updateUrl = `/expense/${this.props.expense.id}?_method=PUT`;
 
@@ -15,16 +16,16 @@ class EditExpenseForm extends React.Component {
             <input name="expense" type="number" step="0.01" defaultValue={this.props.expense.expense} required />
           </div>
           <div>
-            <input name="date" type="date" defaultValue={moment(this.props.expense.date).format("MMM Do YYYY")} />
+            <input name="date" type="date" defaultValue={moment(this.props.expense.date).format("YYYY-MM-DD")} required/>
           </div>
           <div>
-            <input name="category" type="text" defaultValue={this.props.expense.category} placeholder="Category" />
+            <input name="category" type="text" defaultValue={this.props.expense.category} placeholder="Category" required/>
           </div>
           <div>
             <a className="btn btn-secondary mr-2" role="button" href={cancelUrl}>
                 Cancel
             </a>
-            <input className="btn btn-primary my-3" type="submit" value="Update" />
+            <input className="btn btn-primary my-3" name= "submit" type="submit" value="Update" />
           </div>
         </form>
           </DefaultLayout>

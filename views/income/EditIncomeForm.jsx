@@ -15,10 +15,10 @@ class EditIncomeForm extends React.Component {
                         <input name="income" type="number" step="0.01" defaultValue={this.props.income.income} required />
                     </div>
                     <div>
-                        <input name="date" type="date" defaultValue={moment(this.props.income.date).format("MMM Do YYYY")} />
+                        <input name="date" type="date" defaultValue={moment(this.props.income.date).format("YYYY-MM-DD")} required/>
                     </div>
                     <div>
-                        <input name="category" type="text" defaultValue={this.props.income.category} placeholder="Category" />
+                        <input name="category" type="text" defaultValue={this.props.income.category} placeholder="Category" required/>
                     </div>
                     <div>
                         <a className="btn btn-secondary mr-2" role="button" href={cancelUrl}>
