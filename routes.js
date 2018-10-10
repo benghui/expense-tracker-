@@ -26,6 +26,12 @@ module.exports = (app, db) => {
      */
     // CRUD income
     app.get('/income/new', income.newIncomeForm);
+    app.get('/income/:id', income.getFromId);
+    app.get('/income/:id/edit', income.editIncomeForm);
+    app.get('/income/:id/delete', income.deleteForm);
+    
+    app.post("/income/:id", income.editIncome);
+    app.delete("/income/:id", income.IncomeDelete);
 
-    app.post('/income', income.createIncome)
+    app.post('/income', income.createIncome);
 };
