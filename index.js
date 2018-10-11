@@ -56,7 +56,22 @@ require('./routes')(app, db);
 
 // Root GET request (it doesn't belong in any controller file)
 app.get('/', (request, response) => {
-    response.render('Home');
+    const queryString = "SELECT * FROM expense ORDER BY date DESC LIMIT 3";
+    db.queryInterface(queryString, null, (error, queryResult) => {
+        if (error){
+            console.error(error);
+        } else {
+            const queryString = "SELECT * FROM income ORDER BY date DESC LIMIT 3";
+            db.queryInterface(queryString, null, (innerError, innerQueryResult) => {
+                if (innerError){
+                    console.error(innerError);
+                } else {
+                    response.render('Home', { expense: queryResult.rows, income: innerQueryResult.rows });
+
+                }
+            });
+        };
+    });
 });
 
 /**
