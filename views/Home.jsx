@@ -6,6 +6,7 @@ class Home extends React.Component {
     render() {
         // console.log("HOME EXPENSE:", this.props.expense);
         // console.log("HOME INCOME:", this.props.income);
+        // console.log("HOME INCOME:", this.props.incomeSum[0].sum);
 
         const expenseElement = this.props.expense.map(expense =>{
             var urlExpense = "/expense/" + expense.id;
@@ -42,13 +43,15 @@ class Home extends React.Component {
                         <a href="/income/new" role="button" className="btn btn-primary">Enter Income</a>
                     </div>
                     <div className = "col-sm-4">
-                    <br/>
+                        <br/>
                         <a href='/expense' style={{ color: "black" }}><h4>Expense</h4></a>
+                        <h6>Total: ${this.props.expenseSum[0].sum}</h6>
                         {expenseElement}
                     </div>
                     <div className="col-sm-4">
                         <br />
                         <a href='/income' style={{ color: "black" }}><h4>Income</h4></a>
+                        <h6>Total: ${this.props.incomeSum[0].sum}</h6>
                         {incomeElement}
                     </div>
                 </div>

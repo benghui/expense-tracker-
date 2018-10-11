@@ -66,8 +66,21 @@ app.get('/', (request, response) => {
                 if (innerError){
                     console.error(innerError);
                 } else {
-                    response.render('Home', { expense: queryResult.rows, income: innerQueryResult.rows });
-
+                    const queryString = "SELECT SUM (expense) FROM expense";
+                    db.queryInterface(queryString, null, (expenseSumError, expenseSum) => {
+                        if (expenseSumError) {
+                            console.error(expenseSumError);
+                        } else {
+                            const queryString = "SELECT SUM (income) FROM income";
+                            db.queryInterface(queryString, null, (incomeSumError, incomeSum) => {
+                                if (incomeSumError) {
+                                    console.error(incomeSumError);
+                                } else { 
+                                    response.render('Home', { expense: queryResult.rows, income: innerQueryResult.rows, expenseSum: expenseSum.rows, incomeSum: incomeSum.rows });
+                                }
+                            });
+                        }
+                    });
                 }
             });
         };
