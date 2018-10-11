@@ -42,9 +42,16 @@ module.exports = dbPoolInstance => {
 
   const expenseDelete = (id, callback) => {
     // console.log("model delete before");
-    const queryString = `DELETE from expense WHERE id = ${id}`;
+    const queryString = `DELETE FROM expense WHERE id = ${id}`;
     dbPoolInstance.query (queryString, (error, queryResult) => {
       // console.log("model after");
+      callback (error, queryResult);
+    });
+  };
+
+  const expenseAll = (expense, callback) => {
+    const queryString = 'SELECT * FROM expense ORDER BY date DESC';
+    dbPoolInstance.query (queryString, (error, queryResult) => {
       callback (error, queryResult);
     });
   };
@@ -54,5 +61,6 @@ module.exports = dbPoolInstance => {
     getFromId,
     editExpense,
     expenseDelete,
+    expenseAll,
   };
 };

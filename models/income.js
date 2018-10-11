@@ -47,10 +47,18 @@ module.exports = dbPoolInstance => {
         });
     };
 
+    const incomeAll = (income, callback) => {
+        const queryString = 'SELECT * FROM income ORDER BY date DESC';
+        dbPoolInstance.query(queryString, (error, queryResult) => {
+            callback(error, queryResult);
+        });
+    };
+
     return {
         createIncome,
         getFromId,
         editIncome,
         incomeDelete,
+        incomeAll,
     };
 };

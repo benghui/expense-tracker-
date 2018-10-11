@@ -13,6 +13,7 @@ module.exports = (app, db) => {
     app.get('/expense/:id', expense.getFromId);
     app.get('/expense/:id/edit', expense.editExpenseForm);
     app.get('/expense/:id/delete', expense.deleteForm);
+    app.get('/expense', expense.expenseAll);
 
     app.put("/expense/:id", expense.editExpense);
     app.delete("/expense/:id", expense.expenseDelete);
@@ -29,6 +30,7 @@ module.exports = (app, db) => {
     app.get('/income/:id', income.getFromId);
     app.get('/income/:id/edit', income.editIncomeForm);
     app.get('/income/:id/delete', income.deleteForm);
+    app.get('/income', income.incomeAll);
     
     app.put("/income/:id", income.editIncome);
     app.delete("/income/:id", income.incomeDelete);

@@ -101,6 +101,17 @@ module.exports = (db) => {
         });
     };
 
+    const expenseAll = (request, response) => {
+        db.expense.expenseAll (request.body, (error, queryResult) => {
+            if (error) {
+                console.error('error getting expense:', error);
+                response.sendStatus(500);
+            } else {
+                response.render('expense/ExpenseAll', {expense: queryResult.rows});
+            }
+        });
+    };
+    
     /**
      * ===========================================
      * Export controller functions as a module
@@ -114,5 +125,6 @@ module.exports = (db) => {
         editExpense,
         deleteForm,
         expenseDelete,
+        expenseAll,
     };
 };

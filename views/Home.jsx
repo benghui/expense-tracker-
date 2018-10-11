@@ -21,7 +21,6 @@ class Home extends React.Component {
         });
         const incomeElement = this.props.income.map(income => {
             var urlIncome = "/income/" + income.id;
-
             return (
                 <ul key={income.id}>
                     <a href={urlIncome} style={{color: "black"}}>
@@ -44,12 +43,12 @@ class Home extends React.Component {
                     </div>
                     <div className = "col-sm-4">
                     <br/>
-                        <h4>Expense</h4>
+                        <a href='/expense' style={{ color: "black" }}><h4>Expense</h4></a>
                         {expenseElement}
                     </div>
                     <div className="col-sm-4">
                         <br />
-                        <h4>Income</h4>
+                        <a href='/income' style={{ color: "black" }}><h4>Income</h4></a>
                         {incomeElement}
                     </div>
                 </div>

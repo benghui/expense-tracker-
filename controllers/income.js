@@ -100,6 +100,17 @@ module.exports = (db) => {
         });
     };
 
+    const incomeAll = (request, response) => {
+        db.income.incomeAll(request.body, (error, queryResult) => {
+            if (error) {
+                console.error('error getting income:', error);
+                response.sendStatus(500);
+            } else {
+                response.render('income/IncomeAll', { income: queryResult.rows });
+            }
+        });
+    };
+    
     /**
      * ===========================================
      * Export controller functions as a module
@@ -113,5 +124,6 @@ module.exports = (db) => {
         editIncome,
         deleteForm,
         incomeDelete,
+        incomeAll,
     };
 };
