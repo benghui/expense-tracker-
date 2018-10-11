@@ -4,7 +4,7 @@ const moment = require("moment");
 
 class GetFromId extends React.Component {
   render() {
-    //   console.log("inside react", this.props.expense);
+      // console.log("inside react", this.props.expense);
       var urlEdit = this.props.expense[0].id + "/edit"; 
       var urlDelete = this.props.expense[0].id + "/delete"; 
 

@@ -6,21 +6,29 @@ class Home extends React.Component {
     render() {
         // console.log("HOME EXPENSE:", this.props.expense);
         // console.log("HOME INCOME:", this.props.income);
+
         const expenseElement = this.props.expense.map(expense =>{
+            var urlExpense = "/expense/" + expense.id;
             return (
                 <ul key={expense.id}>
+                    <a href= {urlExpense} style={{color: "black"}}>
                     <li key={expense.id} style={{ listStyleType: "none" }}><b>Expense: </b>${expense.expense}</li>
                     <li key={expense.id} style={{ listStyleType: "none" }}><b>Date: </b>{moment(expense.date).format("MMM Do YYYY")}</li>
                     <li key={expense.id} style={{ listStyleType: "none" }}><b>Category: </b>{expense.category}</li>
+                    </a>
                 </ul>
             );
         });
         const incomeElement = this.props.income.map(income => {
+            var urlIncome = "/income/" + income.id;
+
             return (
                 <ul key={income.id}>
+                    <a href={urlIncome} style={{color: "black"}}>
                     <li key={income.id} style={{ listStyleType: "none" }}><b>Income: </b>${income.income}</li>
                     <li key={income.id} style={{ listStyleType: "none" }}><b>Date: </b>{moment(income.date).format("MMM Do YYYY")}</li>
                     <li key={income.id} style={{ listStyleType: "none" }}><b>Category: </b>{income.category}</li>
+                    </a>
                 </ul>
             );
         });

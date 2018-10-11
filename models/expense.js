@@ -41,10 +41,10 @@ module.exports = dbPoolInstance => {
   };
 
   const expenseDelete = (id, callback) => {
-    console.log("model delete before");
+    // console.log("model delete before");
     const queryString = `DELETE from expense WHERE id = ${id}`;
     dbPoolInstance.query (queryString, (error, queryResult) => {
-      console.log("model after");
+      // console.log("model after");
       callback (error, queryResult);
     });
   };

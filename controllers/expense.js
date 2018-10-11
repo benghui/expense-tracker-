@@ -62,7 +62,7 @@ module.exports = (db) => {
     const editExpense = (request, response) => {
         // console.log("EDIT EXPENSE CONTROLLER");
         db.expense.editExpense(request.params.id, request.body, (error, queryResult) => {
-            console.log("INSIDE CONTROLLER", queryResult);
+            // console.log("INSIDE CONTROLLER", queryResult);
             if (error) {
                 console.error('error getting expense:', error);
                 response.sendStatus(500);
