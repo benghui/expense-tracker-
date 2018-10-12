@@ -75,9 +75,17 @@ app.get('/', (request, response) => {
                             db.queryInterface(queryString, null, (incomeSumError, incomeSum) => {
                                 if (incomeSumError) {
                                     console.error(incomeSumError);
-                                } else { 
-                                    response.render('Home', { expense: queryResult.rows, income: innerQueryResult.rows, expenseSum: expenseSum.rows, incomeSum: incomeSum.rows });
-                                }
+                                } else {
+                                    const queryString = 'SELECT ((SELECT SUM (income) FROM income) - (SELECT SUM (expense) FROM expense)) AS "subtraction"';
+                                    db.queryInterface(queryString, null, (cashflowError, cashflow) => {
+                                        if (cashflowError) {
+                                        console.error(cashflowError);
+                                        } else { 
+                                            // console.log("INDEX")
+                                            response.render('Home', { expense: queryResult.rows, income: innerQueryResult.rows, expenseSum: expenseSum.rows, incomeSum: incomeSum.rows, cashflow: cashflow.rows });
+                                        };
+                                    });
+                                };
                             });
                         }
                     });

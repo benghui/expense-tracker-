@@ -111,7 +111,19 @@ module.exports = (db) => {
             }
         });
     };
-    
+
+    const test = (request, response) => {
+        db.expense.test (request.body, (error, queryResult) => {
+            if (error) {
+                console.error('error getting expense:', error);
+                response.sendStatus(500);
+            } else {
+                response.render('expense/test', { expense: queryResult.rows });
+            }
+        });
+    };
+
+   
     /**
      * ===========================================
      * Export controller functions as a module
@@ -126,5 +138,6 @@ module.exports = (db) => {
         deleteForm,
         expenseDelete,
         expenseAll,
+        test,
     };
 };

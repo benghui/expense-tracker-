@@ -14,6 +14,8 @@ module.exports = (app, db) => {
     app.get('/expense/:id/edit', expense.editExpenseForm);
     app.get('/expense/:id/delete', expense.deleteForm);
     app.get('/expense', expense.expenseAll);
+    app.get('/test', expense.test);
+
 
     app.put("/expense/:id", expense.editExpense);
     app.delete("/expense/:id", expense.expenseDelete);

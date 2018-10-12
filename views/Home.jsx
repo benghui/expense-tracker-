@@ -7,6 +7,7 @@ class Home extends React.Component {
         // console.log("HOME EXPENSE:", this.props.expense);
         // console.log("HOME INCOME:", this.props.income);
         // console.log("HOME INCOME:", this.props.incomeSum[0].sum);
+        // console.log("HOME CASHFLOW:", this.props.cashflow[0].subtraction);
 
         const expenseElement = this.props.expense.map(expense =>{
             var urlExpense = "/expense/" + expense.id;
@@ -35,24 +36,32 @@ class Home extends React.Component {
         return (
             <DefaultLayout>
                 <div className = "row">
-                    <div className = "col-sm-4">
+                    <div className = "col-sm-2">
                         <br/>
                         <a href="/expense/new" role="button" className="btn btn-primary">Enter Expense</a>
                         <br />
                         <br/>
                         <a href="/income/new" role="button" className="btn btn-primary">Enter Income</a>
                     </div>
-                    <div className = "col-sm-4">
-                        <br/>
-                        <a href='/expense' style={{ color: "black" }}><h4>Expense</h4></a>
-                        <h6>Total: ${this.props.expenseSum[0].sum}</h6>
-                        {expenseElement}
-                    </div>
-                    <div className="col-sm-4">
+                    
+                    <div className="col-sm-10">
                         <br />
-                        <a href='/income' style={{ color: "black" }}><h4>Income</h4></a>
-                        <h6>Total: ${this.props.incomeSum[0].sum}</h6>
-                        {incomeElement}
+                        <h3>Cash Flow: ${this.props.cashflow[0].subtraction}</h3>
+                        <br/>
+                        <div className = "row">
+                            <div className="col-sm-6">
+                                <br />
+                                <a href='/expense' style={{ color: "black" }}><h4>Expense</h4></a>
+                                <h6>Total: ${this.props.expenseSum[0].sum}</h6>
+                                {expenseElement}
+                            </div>
+                            <div className="col-sm-6">
+                                <br />
+                                <a href='/income' style={{ color: "black" }}><h4>Income</h4></a>
+                                <h6>Total: ${this.props.incomeSum[0].sum}</h6>
+                                {incomeElement}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </DefaultLayout>

@@ -56,11 +56,20 @@ module.exports = dbPoolInstance => {
     });
   };
 
+  const test = (expense, callback) => {
+    const queryString = 'SELECT * FROM expense WHERE EXTRACT (MONTH FROM date) = 10 ORDER BY date';
+    dbPoolInstance.query (queryString, (error, queryResult) => {
+      callback (error, queryResult);
+    });
+  };
+
+
   return {
     createExpense,
     getFromId,
     editExpense,
     expenseDelete,
     expenseAll,
+    test,
   };
 };

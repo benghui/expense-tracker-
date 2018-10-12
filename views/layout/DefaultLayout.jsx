@@ -7,6 +7,7 @@ class DefaultLayout extends React.Component {
               <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
               <meta name="viewport" content="width=device-width, initial-scale=1.0" />
               <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossOrigin="anonymous" />
+              <link rel="stylesheet" type="text/css" href="/style.css" />
               <title>{this.props.title}</title>
             </head>
             <body>
@@ -17,7 +18,7 @@ class DefaultLayout extends React.Component {
                   </a>
                 </nav>
               </header>
-              <div className="container">{this.props.children}</div>
+              <div className="container-fluid">{this.props.children}</div>
             </body>
           </html>;
     }
