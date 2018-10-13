@@ -43,25 +43,22 @@ class Home extends React.Component {
                         <br/>
                         <a href="/income/new" role="button" className="btn btn-primary">Enter Income</a>
                     </div>
-                    
-                    <div className="col-sm-10">
+                    <div className="col-sm-4">
+                        <br />
+                        <a href='/expense' style={{ color: "black" }}><h4>Expense</h4></a>
+                        <h6>Total: ${this.props.expenseSum[0].sum}</h6>
+                        {expenseElement}
+                    </div>
+                    <div className="col-sm-3">
+                        <br />
+                        <a href='/income' style={{ color: "black" }}><h4>Income</h4></a>
+                        <h6>Total: ${this.props.incomeSum[0].sum}</h6>
+                        {incomeElement}
+                    </div>  
+                    <div className="col-sm-3">
                         <br />
                         <h3>Cash Flow: ${this.props.cashflow[0].subtraction}</h3>
-                        <br/>
-                        <div className = "row">
-                            <div className="col-sm-6">
-                                <br />
-                                <a href='/expense' style={{ color: "black" }}><h4>Expense</h4></a>
-                                <h6>Total: ${this.props.expenseSum[0].sum}</h6>
-                                {expenseElement}
-                            </div>
-                            <div className="col-sm-6">
-                                <br />
-                                <a href='/income' style={{ color: "black" }}><h4>Income</h4></a>
-                                <h6>Total: ${this.props.incomeSum[0].sum}</h6>
-                                {incomeElement}
-                            </div>
-                        </div>
+                        <br />
                     </div>
                 </div>
             </DefaultLayout>
