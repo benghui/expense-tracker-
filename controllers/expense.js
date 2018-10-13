@@ -112,13 +112,14 @@ module.exports = (db) => {
         });
     };
 
-    const test = (request, response) => {
-        db.expense.test (request.body, (error, queryResult) => {
-            if (error) {
-                console.error('error getting expense:', error);
+    const summary = (request, response) => {
+        db.expense.summaryOct (request.body, (errorTwo, queryResult, queryResultTwo) => {
+            if (errorTwo) {
+                console.error('error getting expense:', errorTwo);
                 response.sendStatus(500);
             } else {
-                response.render('expense/test', { expense: queryResult.rows });
+                // console.log("CONTROLLER", queryResult.rows, queryResultTwo.rows)
+                response.render('expense/summary', { expense: queryResult.rows, expenseSum: queryResultTwo.rows });
             }
         });
     };
@@ -138,6 +139,6 @@ module.exports = (db) => {
         deleteForm,
         expenseDelete,
         expenseAll,
-        test,
+        summary,
     };
 };

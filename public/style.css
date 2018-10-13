@@ -1,0 +1,13 @@
+li{
+    list-style-type: none;
+}
+
+a:link{
+    color: black;
+}
+a:hover{
+    color: blue;
+}
+a:visited{
+    color: black;
+}

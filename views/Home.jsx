@@ -13,10 +13,10 @@ class Home extends React.Component {
             var urlExpense = "/expense/" + expense.id;
             return (
                 <ul key={expense.id}>
-                    <a href= {urlExpense} style={{color: "black"}}>
-                    <li key={expense.id} style={{ listStyleType: "none" }}><b>Expense: </b>${expense.expense}</li>
-                    <li key={expense.id} style={{ listStyleType: "none" }}><b>Date: </b>{moment(expense.date).format("MMM Do YYYY")}</li>
-                    <li key={expense.id} style={{ listStyleType: "none" }}><b>Category: </b>{expense.category}</li>
+                    <a href= {urlExpense}>
+                    <li key={expense.id}><b>Expense: </b>${expense.expense}</li>
+                    <li key={expense.id}><b>Date: </b>{moment(expense.date).format("MMM Do YYYY")}</li>
+                    <li key={expense.id}><b>Category: </b>{expense.category}</li>
                     </a>
                 </ul>
             );
@@ -25,10 +25,10 @@ class Home extends React.Component {
             var urlIncome = "/income/" + income.id;
             return (
                 <ul key={income.id}>
-                    <a href={urlIncome} style={{color: "black"}}>
-                    <li key={income.id} style={{ listStyleType: "none" }}><b>Income: </b>${income.income}</li>
-                    <li key={income.id} style={{ listStyleType: "none" }}><b>Date: </b>{moment(income.date).format("MMM Do YYYY")}</li>
-                    <li key={income.id} style={{ listStyleType: "none" }}><b>Category: </b>{income.category}</li>
+                    <a href={urlIncome}>
+                    <li key={income.id}><b>Income: </b>${income.income}</li>
+                    <li key={income.id}><b>Date: </b>{moment(income.date).format("MMM Do YYYY")}</li>
+                    <li key={income.id}><b>Category: </b>{income.category}</li>
                     </a>
                 </ul>
             );
@@ -42,16 +42,19 @@ class Home extends React.Component {
                         <br />
                         <br/>
                         <a href="/income/new" role="button" className="btn btn-primary">Enter Income</a>
+                        <br />
+                        <br />
+                        <a href="/summary" role="button" className="btn btn-primary">Summary</a>
                     </div>
                     <div className="col-sm-4">
                         <br />
-                        <a href='/expense' style={{ color: "black" }}><h4>Expense</h4></a>
+                        <a href='/expense'><h4>Expense</h4></a>
                         <h6>Total: ${this.props.expenseSum[0].sum}</h6>
                         {expenseElement}
                     </div>
                     <div className="col-sm-3">
                         <br />
-                        <a href='/income' style={{ color: "black" }}><h4>Income</h4></a>
+                        <a href='/income'><h4>Income</h4></a>
                         <h6>Total: ${this.props.incomeSum[0].sum}</h6>
                         {incomeElement}
                     </div>  

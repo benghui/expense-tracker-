@@ -56,11 +56,19 @@ module.exports = dbPoolInstance => {
     });
   };
 
-  const test = (expense, callback) => {
+  const summaryOct = (expense, callback) => {
     const queryString = 'SELECT * FROM expense WHERE EXTRACT (MONTH FROM date) = 10 ORDER BY date';
-    dbPoolInstance.query (queryString, (error, queryResult) => {
-      callback (error, queryResult);
-    });
+    dbPoolInstance.query(queryString, (error, queryResult) => {
+      // callback (error, queryResult);
+      if(error){
+        console.error('error')
+      } else{
+          const queryStringTwo = 'SELECT SUM (expense) FROM expense WHERE EXTRACT (MONTH FROM date) = 10';
+            dbPoolInstance.query (queryStringTwo, (errorTwo, queryResultTwo) => {
+              callback (errorTwo, queryResult, queryResultTwo);
+            });
+          }    
+      });
   };
 
 
@@ -70,6 +78,6 @@ module.exports = dbPoolInstance => {
     editExpense,
     expenseDelete,
     expenseAll,
-    test,
+    summaryOct,
   };
 };

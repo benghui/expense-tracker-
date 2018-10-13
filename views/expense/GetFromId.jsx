@@ -12,9 +12,9 @@ class GetFromId extends React.Component {
 
         return (
         <ul key={expense.id}>
-            <li key={expense.id} style={{ listStyleType: "none" }}><b>Expense: </b>${expense.expense}</li>
-            <li key={expense.id} style={{ listStyleType: "none" }}><b>Date: </b>{moment(expense.date).format("MMM Do YYYY")}</li>
-            <li key={expense.id} style={{ listStyleType: "none" }}><b>Category: </b>{expense.category}</li>
+            <li key={expense.id}><b>Expense: </b>${expense.expense}</li>
+            <li key={expense.id}><b>Date: </b>{moment(expense.date).format("MMM Do YYYY")}</li>
+            <li key={expense.id}><b>Category: </b>{expense.category}</li>
         </ul>
         );
     });
