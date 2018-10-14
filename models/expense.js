@@ -58,17 +58,22 @@ module.exports = dbPoolInstance => {
 
   const summaryOct = (expense, callback) => {
     const queryString = 'SELECT * FROM expense WHERE EXTRACT (MONTH FROM date) = 10 ORDER BY date';
-    dbPoolInstance.query(queryString, (error, queryResult) => {
+    dbPoolInstance.query(queryString, (error, queryResult, errorTwo, queryResultTwo) => {
       // callback (error, queryResult);
+      // console.log ("queryResult", queryResult);
       if(error){
-        console.error('error')
-      } else{
-          const queryStringTwo = 'SELECT SUM (expense) FROM expense WHERE EXTRACT (MONTH FROM date) = 10';
+        console.error('error');
+      } else if(errorTwo){
+            console.errorTwo ('errorTwo');
+        } else {
+            const queryStringTwo = 'SELECT SUM (expense) FROM expense WHERE EXTRACT (MONTH FROM date) = 10';
             dbPoolInstance.query (queryStringTwo, (errorTwo, queryResultTwo) => {
-              callback (errorTwo, queryResult, queryResultTwo);
+              
+              // console.log ("MODEL TWO", queryResultTwo.rows);
+              callback (error, queryResult, errorTwo, queryResultTwo);
             });
-          }    
-      });
+          }
+    });
   };
 
 

@@ -113,12 +113,16 @@ module.exports = (db) => {
     };
 
     const summary = (request, response) => {
-        db.expense.summaryOct (request.body, (errorTwo, queryResult, queryResultTwo) => {
-            if (errorTwo) {
-                console.error('error getting expense:', errorTwo);
+        db.expense.summaryOct (request.body, (error, queryResult, errorTwo, queryResultTwo) => {
+            if (error) {
+                console.error('error getting expense:', error);
                 response.sendStatus(500);
-            } else {
-                // console.log("CONTROLLER", queryResult.rows, queryResultTwo.rows)
+            } else if (errorTwo){
+                console.errorTwo('error getting expenseSum:', errorTwo);
+                response.sendStatus(500);
+            }else {
+                // console.log("CONTROLLER", queryResult.rows)
+                // console.log("CONTROLLER TWO", queryResultTwo.rows);
                 response.render('expense/summary', { expense: queryResult.rows, expenseSum: queryResultTwo.rows });
             }
         });
