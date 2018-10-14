@@ -62,7 +62,8 @@ module.exports = dbPoolInstance => {
       // callback (error, queryResult);
       // console.log ("queryResult", queryResult);
       if(error){
-        console.error('error');
+        callback(error, queryResult);
+        // console.error('error');
       } else if(errorTwo){
             console.errorTwo ('errorTwo');
         } else {
