@@ -4,7 +4,7 @@ module.exports = (db) => {
 
     /**
      * ===========================================
-     * Controller logic
+     * Controller logic (Income)
      * ===========================================
      */
     const newIncomeForm = (request, response) => {

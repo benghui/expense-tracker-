@@ -4,7 +4,7 @@ module.exports = (db) => {
 
     /**
      * ===========================================
-     * Controller logic
+     * Controller logic (Expense)
      * ===========================================
      */
     const newExpenseForm = (request, response) => {
@@ -111,23 +111,6 @@ module.exports = (db) => {
             }
         });
     };
-
-    const summary = (request, response) => {
-        db.expense.summaryOct (request.body, (error, queryResult, errorTwo, queryResultTwo) => {
-            if (error) {
-                console.error('error getting expense:', error);
-                response.sendStatus(500);
-            } else if (errorTwo){
-                console.errorTwo('error getting expenseSum:', errorTwo);
-                response.sendStatus(500);
-            }else {
-                // console.log("CONTROLLER", queryResult.rows)
-                // console.log("CONTROLLER TWO", queryResultTwo.rows);
-                response.render('expense/summary', { expense: queryResult.rows, expenseSum: queryResultTwo.rows });
-            }
-        });
-    };
-
    
     /**
      * ===========================================
@@ -143,6 +126,5 @@ module.exports = (db) => {
         deleteForm,
         expenseDelete,
         expenseAll,
-        summary,
     };
 };
