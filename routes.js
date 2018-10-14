@@ -8,7 +8,7 @@ module.exports = (app, db) => {
      *  Expense
      *  =========================================
      */
-  // CRUD expense
+    // CRUD expense
   app.get("/expense/new", expense.newExpenseForm);
   app.get("/expense/:id", expense.getFromId);
   app.get("/expense/:id/edit", expense.editExpenseForm);
@@ -25,7 +25,7 @@ module.exports = (app, db) => {
      *  Income
      *  =========================================
      */
-  // CRUD income
+    // CRUD income
   app.get("/income/new", income.newIncomeForm);
   app.get("/income/:id", income.getFromId);
   app.get("/income/:id/edit", income.editIncomeForm);
@@ -42,5 +42,7 @@ module.exports = (app, db) => {
      *  Summary
      *  =========================================
      */
-  app.get("/summary", summary.summary);
+    // CRUD summary
+//   app.get("/summary/month/:id", summary.summaryMth);
+  app.get('/summary', summary.summary)
 };
