@@ -44,5 +44,6 @@ module.exports = (app, db) => {
      */
     // CRUD summary
   app.get("/summary/month/:id", summary.summaryMth);
+  app.get('/summary/:category', summary.category);
   app.get('/summary', summary.summary)
 };

@@ -34,6 +34,21 @@ module.exports = (db) => {
         });
     };
 
+    const category = (request, response) => {
+        db.summary.category(request.params.category, (error, queryResult, errorTwo, queryResultTwo) => {
+            console.log ("CONTROLLER", request.params.category)
+            if (error) {
+                console.error('error getting summary:', error);
+                response.sendStatus(500);
+            } else if (errorTwo) {
+                console.errorTwo('error getting expenseSum:', errorTwo);
+                response.sendStatus(500);
+            } else {
+                // console.log ('CONTROLLER', queryResult.rows);
+                response.render('summary/category', { expense: queryResult.rows, expenseSum: queryResultTwo.rows });
+            }
+        });
+    };
     /**
      * ===========================================
      * Export controller functions as a module
@@ -42,5 +57,6 @@ module.exports = (db) => {
     return {
         summary,
         summaryMth,
+        category,
     };
 };

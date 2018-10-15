@@ -31,10 +31,36 @@ module.exports = (dbPoolInstance) => {
       // console.log ("queryResult", queryResult);
       // console.error('error'); 
     });
+
+    // const queryString = `SELECT * FROM expense ORDER BY date`;
+    // dbPoolInstance.query (queryString, (error, queryResult) => {
+    //   callback (error, queryResult);
+    // });
   };
+
+  const category = (category, callback) => {
+    const queryString = `SELECT * FROM expense WHERE category = '${category}' ORDER BY date`;
+    dbPoolInstance.query(queryString, (error, queryResult) => {
+      if (error) {
+        callback(error, queryResult);
+        // console.error('error');
+      } else {
+        const queryStringTwo = `SELECT SUM (expense) FROM expense WHERE category = '${category}'`;
+        dbPoolInstance.query(queryStringTwo, (errorTwo, queryResultTwo) => {
+          if (errorTwo) {
+            console.errorTwo('errorTwo');
+          };
+          // console.log ("MODEL TWO", queryResultTwo.rows);
+          callback(error, queryResult, errorTwo, queryResultTwo);
+        });
+      }
+    });
+  };
+  
 
   return {
     summaryMth,
     summary,
+    category,
   };
 };

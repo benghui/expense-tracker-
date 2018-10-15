@@ -16,12 +16,20 @@ class Summary extends React.Component {
                 </ul>
             );
         });
-        return (
-            <DefaultLayout>
-                <br/>
+
+
+        return <DefaultLayout>
+            <div className = "row">
+                <div className = "col-sm-6">
+                <br />
                 <h4>Expense Summary by Month</h4>
                 {expenseElement}
-            </DefaultLayout>);
+                </div>
+                <div className = "col-sm-6">
+                
+                </div>  
+            </div>
+          </DefaultLayout>;
     }
 }
 
