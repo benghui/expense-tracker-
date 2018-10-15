@@ -6,8 +6,8 @@ module.exports = (db) => {
      */
 
 
-    const summary = (request, response) => {
-        db.summary.summaryMth(request.body, (error, queryResult, errorTwo, queryResultTwo) => {
+    const summaryMth = (request, response) => {
+        db.summary.summaryMth(request.params.id, (error, queryResult, errorTwo, queryResultTwo) => {
             if (error) {
                 console.error('error getting expense:', error);
                 response.sendStatus(500);
@@ -22,6 +22,18 @@ module.exports = (db) => {
         });
     };
 
+    const summary = (request, response) => {
+        db.summary.summary(request.body, (error, queryResult) => {
+            if (error) {
+                console.error('error getting summary:', error);
+                response.sendStatus(500);
+            } else {
+                // console.log ('CONTROLLER', queryResult.rows);
+                response.render('summary/summary', { expense: queryResult.rows });
+            }
+        });
+    };
+
     /**
      * ===========================================
      * Export controller functions as a module
@@ -29,5 +41,6 @@ module.exports = (db) => {
      */
     return {
         summary,
+        summaryMth,
     };
 };

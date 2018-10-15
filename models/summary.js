@@ -5,15 +5,14 @@
  */
 module.exports = (dbPoolInstance) => {
   const summaryMth = (id, callback) => {
-    const queryString = `SELECT * FROM expense WHERE EXTRACT (MONTH FROM date) = 10 ORDER BY date`;
+    const queryString = `SELECT * FROM expense WHERE EXTRACT (MONTH FROM date) = ${id} ORDER BY date`;
     dbPoolInstance.query(queryString, (error, queryResult) => {
-      // callback (error, queryResult);
       // console.log ("queryResult", queryResult);
       if (error) {
         callback(error, queryResult);
         // console.error('error');
       } else {
-        const queryStringTwo = `SELECT SUM (expense) FROM expense WHERE EXTRACT (MONTH FROM date) = 10`;
+        const queryStringTwo = `SELECT SUM (expense) FROM expense WHERE EXTRACT (MONTH FROM date) = ${id}`;
         dbPoolInstance.query(queryStringTwo, (errorTwo, queryResultTwo) => {
             if (errorTwo) {
             console.errorTwo('errorTwo');
@@ -25,27 +24,17 @@ module.exports = (dbPoolInstance) => {
     });
   };
 
-    // const summary = (id, callback) => {
-    //     const queryString = `SELECT SUM (expense) FROM expense WHERE EXTRACT (MONTH FROM date) = 10`;
-    //     dbPoolInstance.query(queryString, (error, queryResult) => {
-    //         // callback (error, queryResult);
-    //         // console.log ("queryResult", queryResult);
-    //         if (error) {
-    //             callback(error, queryResult);
-    //             // console.error('error');
-    //         } else {
-    //             const queryStringTwo = `SELECT SUM (expense) FROM expense WHERE EXTRACT (MONTH FROM date) = 10`;
-    //             dbPoolInstance.query(queryStringTwo, (errorTwo, queryResultTwo) => {
-    //                 if (errorTwo) {
-    //                     console.errorTwo('errorTwo');
-    //                 };
-    //                 // console.log ("MODEL TWO", queryResultTwo.rows);
-    //                 callback(error, queryResult, errorTwo, queryResultTwo);
-    //             });
-    //         }
-    //     });
-    // };
+  const summary = (expense, callback) => {
+    const queryString = `SELECT to_char (date, 'YYYY-MM' ) AS expense_date, SUM (expense) AS expense_sum FROM expense WHERE DATE > date_trunc ('month', date) - INTERVAL '1 year' GROUP BY expense_date WINDOW w AS (ORDER BY to_char(date, 'YYYY-MM')) ORDER BY expense_date DESC`;
+    dbPoolInstance.query(queryString, (error, queryResult) => {
+      callback(error, queryResult);
+      // console.log ("queryResult", queryResult);
+      // console.error('error'); 
+    });
+  };
+
   return {
     summaryMth,
+    summary,
   };
 };
