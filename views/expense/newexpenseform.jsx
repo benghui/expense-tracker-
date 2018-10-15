@@ -1,5 +1,5 @@
 var React = require("react");
-const DefaultLayout = require("../layout/DefaultLayout");
+const DefaultLayout = require("../layout/defaultlayout");
 
 class NewExpenseForm extends React.Component {
     render() {

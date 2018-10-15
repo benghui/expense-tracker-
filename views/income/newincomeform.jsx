@@ -1,5 +1,5 @@
 var React = require("react");
-const DefaultLayout = require("../layout/DefaultLayout");
+const DefaultLayout = require("../layout/defaultlayout");
 
 class NewIncomeForm extends React.Component {
   render() {

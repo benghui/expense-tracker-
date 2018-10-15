@@ -1,5 +1,5 @@
 const React = require("react");
-const DefaultLayout = require("../layout/DefaultLayout");
+const DefaultLayout = require("../layout/defaultlayout");
 
 class DeleteForm extends React.Component {
     render() {

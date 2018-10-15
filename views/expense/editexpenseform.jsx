@@ -1,6 +1,6 @@
 const React = require('react');
 const moment = require("moment");
-const DefaultLayout = require("../layout/DefaultLayout");
+const DefaultLayout = require("../layout/defaultlayout");
 
 class EditExpenseForm extends React.Component {
     render() {
