@@ -17,6 +17,17 @@ class Summary extends React.Component {
             );
         });
 
+        const categoryElement = this.props.categorySum.map(category => {
+            var urlCategory = "/summary/" + category.category;
+            return (
+                <ul key={category.category}>
+                    <a href={urlCategory}>
+                        <li key={category.category}><b>Expense Total: </b>${category.sum}</li>
+                        <li key={category.category}><b>Category: </b>{category.category}</li>
+                    </a>
+                </ul>
+            );
+        });
 
         return <DefaultLayout>
             <div className = "row">
@@ -26,7 +37,9 @@ class Summary extends React.Component {
                 {expenseElement}
                 </div>
                 <div className = "col-sm-6">
-                
+                <br/>
+                <h4>Expense Summary by Category</h4>
+                {categoryElement}
                 </div>  
             </div>
           </DefaultLayout>;

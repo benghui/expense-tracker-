@@ -26,15 +26,19 @@ module.exports = (dbPoolInstance) => {
   const summary = (expense, callback) => {
     const queryString = `SELECT to_char (date, 'YYYY-MM' ) AS expense_date, SUM (expense) AS expense_sum FROM expense WHERE DATE > date_trunc ('month', date) - INTERVAL '1 year' GROUP BY expense_date WINDOW w AS (ORDER BY to_char(date, 'YYYY-MM')) ORDER BY expense_date DESC`;
     dbPoolInstance.query(queryString, (error, queryResult) => {
-      callback(error, queryResult);
-      // console.log ("queryResult", queryResult);
-      // console.error('error'); 
+      if (error) {
+        callback(error, queryResult);
+        // console.error('error');
+      } else {
+        const queryStringTwo = `SELECT SUM (expense), category FROM expense GROUP BY category`;
+        dbPoolInstance.query(queryStringTwo, (errorTwo, queryResultTwo) => {
+          if (errorTwo) {
+            console.errorTwo('errorTwo');
+          };
+          callback(error, queryResult, errorTwo, queryResultTwo);
+        });
+      }
     });
-
-    // const queryString = `SELECT * FROM expense ORDER BY date`;
-    // dbPoolInstance.query (queryString, (error, queryResult) => {
-    //   callback (error, queryResult);
-    // });
   };
 
   const category = (category, callback) => {

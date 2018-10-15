@@ -23,13 +23,16 @@ module.exports = (db) => {
     };
 
     const summary = (request, response) => {
-        db.summary.summary(request.body, (error, queryResult) => {
+        db.summary.summary(request.body, (error, queryResult, errorTwo, queryResultTwo) => {
             if (error) {
                 console.error('error getting summary:', error);
                 response.sendStatus(500);
+            } else if (errorTwo) {
+                console.errorTwo('error getting expenseSum:', errorTwo);
+                response.sendStatus(500);
             } else {
                 // console.log ('CONTROLLER', queryResult.rows);
-                response.render('summary/summary', { expense: queryResult.rows });
+                response.render('summary/summary', { expense: queryResult.rows, categorySum: queryResultTwo.rows });
             }
         });
     };
