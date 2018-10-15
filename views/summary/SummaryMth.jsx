@@ -19,12 +19,19 @@ class SummaryMth extends React.Component {
         });
         return (
         <DefaultLayout>
-            <br/>
-            <h4>Expense Summary for {moment(this.props.expense[0].date).format("MMM")}</h4>
-            <h5>Total: ${this.props.expenseSum[0].sum}</h5>
-            <br/>
-            <h5>List of Expenses</h5>
-            {expenseElement}
+            <div className = "row">
+                <div className = "col-sm-9">        
+                    <br/>
+                    <h4>Expense Summary for {moment(this.props.expense[0].date).format("MMM")}</h4>
+                    <h5>Total: ${this.props.expenseSum[0].sum}</h5>
+                    <br/>
+                    <a href="/summary" role="button" className="btn btn-primary">Back to Summary</a>
+                    <br/>
+                    <br/>
+                    <h5>List of Expenses</h5>
+                    {expenseElement}
+                </div>   
+            </div>
         </DefaultLayout>);
     }
 }
