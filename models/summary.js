@@ -17,7 +17,6 @@ module.exports = (dbPoolInstance) => {
             if (errorTwo) {
             console.errorTwo('errorTwo');
             }; 
-          // console.log ("MODEL TWO", queryResultTwo.rows);
           callback(error, queryResult, errorTwo, queryResultTwo);
         });
       }
@@ -50,7 +49,6 @@ module.exports = (dbPoolInstance) => {
           if (errorTwo) {
             console.errorTwo('errorTwo');
           };
-          // console.log ("MODEL TWO", queryResultTwo.rows);
           callback(error, queryResult, errorTwo, queryResultTwo);
         });
       }

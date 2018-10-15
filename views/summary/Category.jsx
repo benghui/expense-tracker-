@@ -4,7 +4,7 @@ const moment = require("moment");
 
 class Category extends React.Component {
     render() {
-          console.log("inside react", this.props.expense);
+        //   console.log("inside react", this.props.expense);
         const expenseElement = this.props.expense.map(expense => {
             var urlExpense = "/expense/" + expense.id;
             return (

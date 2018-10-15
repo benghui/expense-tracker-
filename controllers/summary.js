@@ -17,7 +17,7 @@ module.exports = (db) => {
             } else {
                 // console.log("CONTROLLER", queryResult.rows)
                 // console.log("CONTROLLER TWO", queryResultTwo.rows);
-                response.render('summary/summaryMth', { expense: queryResult.rows, expenseSum: queryResultTwo.rows });
+                response.render('summary/SummaryMth', { expense: queryResult.rows, expenseSum: queryResultTwo.rows });
             }
         });
     };
@@ -29,7 +29,7 @@ module.exports = (db) => {
                 response.sendStatus(500);
             } else {
                 // console.log ('CONTROLLER', queryResult.rows);
-                response.render('summary/summary', { expense: queryResult.rows });
+                response.render('summary/Summary', { expense: queryResult.rows });
             }
         });
     };
@@ -45,7 +45,7 @@ module.exports = (db) => {
                 response.sendStatus(500);
             } else {
                 // console.log ('CONTROLLER', queryResult.rows);
-                response.render('summary/category', { expense: queryResult.rows, expenseSum: queryResultTwo.rows });
+                response.render('summary/Category', { expense: queryResult.rows, expenseSum: queryResultTwo.rows });
             }
         });
     };
