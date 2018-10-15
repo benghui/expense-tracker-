@@ -8,7 +8,7 @@ module.exports = (db) => {
      * ===========================================
      */
     const newIncomeForm = (request, response) => {
-        response.render('income/NewIncomeForm');
+        response.render('income/newincomeform');
     };
 
     const createIncome = (request, response) => {
@@ -41,7 +41,7 @@ module.exports = (db) => {
                 response.sendStatus(500);
             } else {
                 // console.log("CONTROLLER ID FORM: ", queryResult.rows);
-                response.render('income/GetFromId', { income: queryResult.rows });
+                response.render('income/getfromid', { income: queryResult.rows });
             }
         });
     };
@@ -53,7 +53,7 @@ module.exports = (db) => {
                 response.sendStatus(500);
             } else {
                 // console.log ("CONTROLLER EDIT FORM: ", queryResult.rows);
-                response.render('income/EditIncomeForm', { income: queryResult.rows[0] });
+                response.render('income/editincomeform', { income: queryResult.rows[0] });
             }
 
         });
@@ -83,7 +83,7 @@ module.exports = (db) => {
                 response.sendStatus(500);
             } else {
                 // console.log("CONTROLLER DELETE FORM: ", queryResult.rows);
-                response.render('income/DeleteForm', { income: queryResult.rows[0] });
+                response.render('income/deleteform', { income: queryResult.rows[0] });
             }
         });
     };
@@ -106,7 +106,7 @@ module.exports = (db) => {
                 console.error('error getting income:', error);
                 response.sendStatus(500);
             } else {
-                response.render('income/IncomeAll', { income: queryResult.rows });
+                response.render('income/incomeall', { income: queryResult.rows });
             }
         });
     };

@@ -82,7 +82,7 @@ app.get('/', (request, response) => {
                                         console.error(cashflowError);
                                         } else { 
                                             // console.log("INDEX")
-                                            response.render('Home', { expense: queryResult.rows, income: innerQueryResult.rows, expenseSum: expenseSum.rows, incomeSum: incomeSum.rows, cashflow: cashflow.rows });
+                                            response.render('home', { expense: queryResult.rows, income: innerQueryResult.rows, expenseSum: expenseSum.rows, incomeSum: incomeSum.rows, cashflow: cashflow.rows });
                                         };
                                     });
                                 };

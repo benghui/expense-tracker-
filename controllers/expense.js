@@ -8,7 +8,7 @@ module.exports = (db) => {
      * ===========================================
      */
     const newExpenseForm = (request, response) => {
-        response.render('expense/NewExpenseForm');
+        response.render('expense/newexpenseform');
     };
 
     const createExpense = (request, response) => {
@@ -41,7 +41,7 @@ module.exports = (db) => {
                 response.sendStatus(500);
             } else {
                 // console.log("CONTROLLER ID FORM: ", queryResult.rows);
-                response.render('expense/GetFromId', {expense: queryResult.rows});
+                response.render('expense/getfromid', {expense: queryResult.rows});
             }
         });
     };
@@ -53,7 +53,7 @@ module.exports = (db) => {
                 response.sendStatus(500);
             } else{
                 // console.log ("CONTROLLER EDIT FORM: ", queryResult.rows);
-                response.render('expense/EditExpenseForm', {expense: queryResult.rows[0]});
+                response.render('expense/editexpenseform', {expense: queryResult.rows[0]});
             } 
 
         });
@@ -84,7 +84,7 @@ module.exports = (db) => {
                 response.sendStatus(500);
             } else {
                 // console.log("CONTROLLER DELETE FORM: ", queryResult.rows);
-                response.render('expense/DeleteForm', {expense: queryResult.rows[0]});
+                response.render('expense/deleteform', {expense: queryResult.rows[0]});
             }
         });
     };
@@ -107,7 +107,7 @@ module.exports = (db) => {
                 console.error('error getting expense:', error);
                 response.sendStatus(500);
             } else {
-                response.render('expense/ExpenseAll', {expense: queryResult.rows});
+                response.render('expense/expenseall', {expense: queryResult.rows});
             }
         });
     };
