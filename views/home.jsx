@@ -57,7 +57,7 @@ class Home extends React.Component {
                     </div>  
                     <div className="col-sm-3">
                         <br />
-                        <h3>Cash Flow: ${this.props.cashflow[0].subtraction}</h3>
+                        <h3 id = "cashflow">Cash Flow: ${this.props.cashflow[0].subtraction}</h3>
                         <br />
                     </div>
                 </div>

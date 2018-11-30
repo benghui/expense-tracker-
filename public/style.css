@@ -1,13 +1,27 @@
-li{
-    list-style-type: none;
+li {
+	list-style-type: none;
 }
 
-a:link{
-    color: black;
+a:link {
+	color: black;
 }
-a:hover{
-    color: blue;
+
+a:hover {
+	color: blue;
 }
-a:visited{
-    color: black;
+
+a:visited {
+	color: black;
+}
+
+#cashflow {
+	color: green
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 70px;
+	text-align: right;
 }
