@@ -16,4 +16,8 @@ Access the demo app here: https://expense-tracker-.herokuapp.com/
 
 ## Wireframes
 
-![expense tracker wireframe](https://user-images.githubusercontent.com/8159689/49271842-5277ca00-f4aa-11e8-84d0-92dff208f658.jpeg)
+Homepage view
+![homepage](https://user-images.githubusercontent.com/8159689/49273851-49d6c200-f4b1-11e8-9d23-ac0c157c9429.jpg)
+
+Summary page view
+![summary](https://user-images.githubusercontent.com/8159689/49273852-49d6c200-f4b1-11e8-9e86-05e1796326a9.jpg)
